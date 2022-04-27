@@ -56,21 +56,21 @@ export default function TextForm(props) {
 
                     </textarea>
                 </div>
-                <button className='btn btn-secondary m-2' onClick={handleUpperCaseClick}>Uppercase</button>
-                <button className='btn btn-secondary m-2' onClick={handleLowerCaseClick}>Lowercase</button>
-                <button className='btn btn-secondary m-2' onClick={handleExtraSpacesClick}>Remove Extra Spaces</button>
-                <button className='btn btn-secondary m-2' onClick={handleClearTextClick}>Clear</button>
-                <button className='btn btn-secondary m-2' onClick={handleCopyClick}>Copy</button>
+                <button disabled={text.length === 0} className='btn btn-secondary m-2' onClick={handleUpperCaseClick}>Uppercase</button>
+                <button disabled={text.length === 0} className='btn btn-secondary m-2' onClick={handleLowerCaseClick}>Lowercase</button>
+                <button disabled={text.length === 0} className='btn btn-secondary m-2' onClick={handleExtraSpacesClick}>Remove Extra Spaces</button>
+                <button disabled={text.length === 0} className='btn btn-secondary m-2' onClick={handleClearTextClick}>Clear</button>
+                <button disabled={text.length === 0} className='btn btn-secondary m-2' onClick={handleCopyClick}>Copy</button>
             </div>
 
             <hr />
 
             <div className={`container my-3 ${props.mode === 'dark' ? "text-light" : "text-dark"}`}>
                 <h2>Text summary</h2>
-                <p>Words: {text === "" ? 0 : text.split(" ").length} | Characters: {text.length}</p>
+                <p>Words: {text === "" ? 0 : text.split(" ").filter((ele) => { return ele.length !== 0 }).length} | Characters: {text.length}</p>
                 <p>AVG Time to read: {text === "" ? 0 : 0.008 * text.split(" ").length} min</p>
                 <h2>Preview:</h2>
-                <p style={myStyle}>{text}</p>
+                <p style={myStyle}>{text.length > 0 ? text : 'Nothing to Preview!'}</p>
             </div>
 
 
