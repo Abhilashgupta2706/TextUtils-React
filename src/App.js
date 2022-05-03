@@ -1,10 +1,6 @@
 import './App.css';
 import React, { useState } from 'react'
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route
-} from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import About from './components/About';
 import Navbar from './components/Navbar';
@@ -45,7 +41,6 @@ function App() {
   return (
     <>
 
-      <Router>
         <Navbar title='TextUtils' mode={mode} toggleMode={toggleMode} />
         <Alert alert={alert} />
         <div className="container my-2">
@@ -53,14 +48,14 @@ function App() {
           <Routes>
             <Route
               exact
-              path="/TextUtils-React"
+              path="/"
               element={
                 <TextForm heading='Enter the text to analyze' mode={mode} blackColorCode={blackColorCode} />
               }
             />
             <Route
               exact
-              path="/TextUtils-React/about"
+              path="/about"
               element={
                 <About mode={mode} blackColorCode={blackColorCode} />
               }
@@ -68,7 +63,7 @@ function App() {
           </Routes>
 
         </div>
-      </Router>
+
 
     </>
   );

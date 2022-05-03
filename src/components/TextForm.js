@@ -36,7 +36,9 @@ export default function TextForm(props) {
 
     const myStyle = {
         maxWidth: '100%',
-        wordWrap: 'break-word'
+        wordWrap: 'break-word',
+        border: '1px solid gray',
+        padding: '1rem'
     }
 
 
