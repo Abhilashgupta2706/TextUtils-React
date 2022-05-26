@@ -30,7 +30,6 @@ export default function TextForm(props) {
 
     const handleCopyClick = () => {
         let textToCopy = document.getElementById('myBox')
-        textToCopy.select()
         navigator.clipboard.writeText(textToCopy.value)
     }
 
@@ -48,6 +47,7 @@ export default function TextForm(props) {
 
             <div className={`container my-3 ${props.mode === 'dark' ? "text-light" : "text-dark"}`}>
                 <h1 >{props.heading}</h1>
+
                 <div className="mb-3">
                     <textarea placeholder='Enter your text here'
                         value={text} onChange={handleOnChange}
@@ -55,9 +55,9 @@ export default function TextForm(props) {
                         className="form-control"
                         id="myBox"
                         rows="8">
-
                     </textarea>
                 </div>
+
                 <button disabled={text.length === 0} className='btn btn-secondary m-2' onClick={handleUpperCaseClick}>Uppercase</button>
                 <button disabled={text.length === 0} className='btn btn-secondary m-2' onClick={handleLowerCaseClick}>Lowercase</button>
                 <button disabled={text.length === 0} className='btn btn-secondary m-2' onClick={handleExtraSpacesClick}>Remove Extra Spaces</button>
@@ -69,7 +69,7 @@ export default function TextForm(props) {
 
             <div className={`container my-3 ${props.mode === 'dark' ? "text-light" : "text-dark"}`}>
                 <h2>Text summary</h2>
-                <p>Words: {text === "" ? 0 : text.split(" ").filter((ele) => { return ele.length !== 0 }).length} | Characters: {text.length}</p>
+                <p>Words: {text === "" ? 0 : text.split(/\s+/).filter((ele) => { return ele.length !== 0 }).length} | Characters: {text.length}</p>
                 <p>AVG Time to read: {text === "" ? 0 : 0.008 * text.split(" ").length} min</p>
                 <h2>Preview:</h2>
                 <p style={myStyle}>{text.length > 0 ? text : 'Nothing to Preview!'}</p>
