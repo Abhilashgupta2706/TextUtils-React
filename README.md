@@ -1,7 +1,7 @@
 # TextUtils React
 
 ### How to use
-Go to [TextUtils](https://abhilashgupta2706.github.io/TextUtils-React/) to use his app
+Go to [TextUtils](https://text-utils-react.web.app/) to use his app
 *  It is a simple webapp that helps user to manipulate their texts
 *  Paste/Write you text and change it based on the option available
 *  Fixing bugs and implimenting new features continuously
